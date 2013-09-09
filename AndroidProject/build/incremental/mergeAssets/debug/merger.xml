@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/home/punan/workspace3/AndroidProjec/AndroidProject/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/punan/workspace3/AndroidProjec/AndroidProject/src/debug/assets" />
+    </dataSet>
+
+</merger>
