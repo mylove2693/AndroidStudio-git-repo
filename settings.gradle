@@ -1,1 +1,1 @@
-include ':AndroidProject'
+include ':AndroidProject', ':TestAndroid'
