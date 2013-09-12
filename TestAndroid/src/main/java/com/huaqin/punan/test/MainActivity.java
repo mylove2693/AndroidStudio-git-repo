@@ -7,10 +7,13 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 
 public class MainActivity extends Activity {
 
+    private Button btn_send;
     private GridView mGridView;
     private BroadcastReceiver mMusicStateReceiver;
 
@@ -18,6 +21,16 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_main);
+
+        btn_send = (Button)findViewById(R.id.send_broadcast);
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("");
+                sendBroadcast(intent);
+            }
+        });
+
 
         mMusicStateReceiver = new BroadcastReceiver(){
             @Override
