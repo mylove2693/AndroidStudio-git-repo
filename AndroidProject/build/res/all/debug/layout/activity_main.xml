@@ -13,5 +13,12 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+    <Button
+        android:id="@+id/mybtn"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:text="Button" />
+
 </RelativeLayout>
 <!-- From: file:/home/punan/workspace3/AndroidProjec/AndroidProject/src/main/res/layout/activity_main.xml -->
