@@ -13,6 +13,8 @@ import android.widget.GridView;
 
 public class MainActivity extends Activity {
 
+    public static final String BROADCAST_TEST = "com.android.test";
+
     private Button btn_send;
     private GridView mGridView;
     private BroadcastReceiver mMusicStateReceiver;
@@ -26,7 +28,7 @@ public class MainActivity extends Activity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("");
+                Intent intent = new Intent(BROADCAST_TEST);
                 sendBroadcast(intent);
             }
         });
@@ -39,7 +41,7 @@ public class MainActivity extends Activity {
             }
         };
 
-        IntentFilter mIntentFilter = new IntentFilter("");
+        IntentFilter mIntentFilter = new IntentFilter(BROADCAST_TEST);
         registerReceiver(mMusicStateReceiver,mIntentFilter);
 
     }
