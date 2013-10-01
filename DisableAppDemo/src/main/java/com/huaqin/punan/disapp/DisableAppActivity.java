@@ -33,9 +33,6 @@ public class DisableAppActivity extends Activity {
                         0);
             }
         });
-
-
-
     }
 
 
