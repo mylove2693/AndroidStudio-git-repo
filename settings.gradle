@@ -1,1 +1,1 @@
-include ':AndroidProject', ':TestAndroid', ':DisableAppDemo', ':ShakeDemo', ':FragmentDemo', ':FragmentDemo2'
+include ':AndroidProject', ':TestAndroid', ':DisableAppDemo', ':ShakeDemo', ':FragmentDemo', ':FragmentDemo2', ':FragmentDemo3'
