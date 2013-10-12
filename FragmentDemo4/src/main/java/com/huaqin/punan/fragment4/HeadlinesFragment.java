@@ -13,11 +13,10 @@ import android.widget.ListView;
  */
 public class HeadlinesFragment extends ListFragment {
 
-    Resources mResource;
-    OnHeadlineSelectedListener mCallback;
+    private Resources mResource;
+    private OnHeadlineSelectedListener mCallback;
 
-    boolean mDualPane;
-    int mCurCheckPosition = 0;
+    private int mCurCheckPosition = 0;
 
     public interface OnHeadlineSelectedListener{
         public void onArticleSelected(int position);
