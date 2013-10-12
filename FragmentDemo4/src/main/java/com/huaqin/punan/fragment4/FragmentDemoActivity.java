@@ -1,10 +1,14 @@
 package com.huaqin.punan.fragment4;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
 
-public class FragmentDemoActivity extends Activity {
+public class FragmentDemoActivity extends Activity implements HeadlinesFragment.OnHeadlineSelectedListener{
+
+    boolean mDualPane;
+    int mCurCheckPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +23,9 @@ public class FragmentDemoActivity extends Activity {
         getMenuInflater().inflate(R.menu.fragment_demo, menu);
         return true;
     }
-    
+
+    @Override
+    public void onArticleSelected(int position) {
+        Toast.makeText(this,position+" clicked",Toast.LENGTH_SHORT).show();
+    }
 }

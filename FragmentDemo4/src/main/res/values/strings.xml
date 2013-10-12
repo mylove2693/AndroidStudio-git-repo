@@ -5,4 +5,25 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
+    <string-array name="article_title">
+        <item>Henry IV</item>
+        <item>Henry V</item>
+        <item>Henry VIII</item>
+        <item>Richard II</item>
+        <item>Richard III</item>
+        <item>Merchant of Venice</item>
+        <item>Othello</item>
+        <item>King Lear</item>
+    </string-array>
+
+    <string-array name="article_detail">
+        <item>So shaken as we are, so wan with care</item>
+        <item>Find we a time for frighted peace to pant</item>
+        <item>And breathe short-winded accents of new broils</item>
+        <item>To be commenced in strands afar remote</item>
+        <item>No more the thirsty entrance of this soil</item>
+        <item>Shall daub her lips with her own children\'s blood</item>
+        <item>Nor more shall trenching war channel her fields</item>
+        <item>Nor bruise her flowerets with the armed hoofs</item>
+    </string-array>
 </resources>
