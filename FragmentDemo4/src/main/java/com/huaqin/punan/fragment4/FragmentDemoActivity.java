@@ -15,6 +15,7 @@ public class FragmentDemoActivity extends Activity implements HeadlinesFragment.
     int mCurCheckPosition = 0;
 
     private ListFragment headlinesFragment;
+    private ArticleFragment articleFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,10 @@ public class FragmentDemoActivity extends Activity implements HeadlinesFragment.
         if(mDualPane){
             headlinesFragment = (ListFragment)getFragmentManager().findFragmentById(R.id.titles);
             headlinesFragment.getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            onArticleSelected(mCurCheckPosition);
+            //onArticleSelected(mCurCheckPosition);
+            headlinesFragment.getListView().setItemChecked(mCurCheckPosition,true);
+            getFragmentManager().beginTransaction().add(R.id.details,
+                    ArticleFragment.newInstance(mCurCheckPosition)).commit();
         }
     }
 
@@ -55,9 +59,6 @@ public class FragmentDemoActivity extends Activity implements HeadlinesFragment.
 
         if(mDualPane){
             headlinesFragment.getListView().setItemChecked(position,true);
-
-            ArticleFragment articleFragment = (ArticleFragment)getFragmentManager().
-                    findFragmentById(R.id.details);
 
             if(articleFragment == null || articleFragment.getShownIndex() != position){
                 articleFragment = ArticleFragment.newInstance(position);
