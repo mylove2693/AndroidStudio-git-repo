@@ -66,6 +66,7 @@ public class FragmentDemoActivity extends Activity implements HeadlinesFragment.
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.details,articleFragment);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
                 ft.commit();
             }
 
@@ -78,4 +79,30 @@ public class FragmentDemoActivity extends Activity implements HeadlinesFragment.
         }
 
     }
+
+    private void showDetials(int index){
+        mCurCheckPosition = index;
+        if(mDualPane){
+            headlinesFragment.getListView().setItemChecked(mCurCheckPosition,true);
+
+            if(articleFragment == null || articleFragment.getShownIndex() != mCurCheckPosition){
+                articleFragment = ArticleFragment.newInstance(mCurCheckPosition);
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.details,articleFragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+
+        }else{
+            Intent intent = new Intent();
+            intent.setClass(this,DetailsActivity.class);
+            intent.putExtra("index",mCurCheckPosition);
+            startActivity(intent);
+            //Toast.makeText(this, position + " new activity", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }
