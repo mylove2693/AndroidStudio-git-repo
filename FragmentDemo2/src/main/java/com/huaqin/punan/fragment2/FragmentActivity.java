@@ -1,11 +1,10 @@
 package com.huaqin.punan.fragment2;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
 public class FragmentActivity extends Activity {
 
@@ -25,5 +24,5 @@ public class FragmentActivity extends Activity {
         ft.add(R.id.main_frag_container, fragOne);
         ft.commit();
     }
-    
+
 }

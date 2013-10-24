@@ -32,8 +32,8 @@ public class FragmentContainer extends Fragment{
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-        fragmentTransaction.add(R.id.frag_container,mFragmentOne);
         fragmentTransaction.add(R.id.frag_container,mFragmentTwo);
+        fragmentTransaction.add(R.id.frag_container,mFragmentOne);
 
         fragmentTransaction.commit();
 
