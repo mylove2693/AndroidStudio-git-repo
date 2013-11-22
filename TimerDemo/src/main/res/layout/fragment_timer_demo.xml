@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".TimerDemo$PlaceholderFragment">
+
+    <TextView
+        android:id="@+id/mytv"
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TimePicker
+        android:id="@+id/mytp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mytv"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        >
+    </TimePicker>
+
+    <TextView
+        android:id="@+id/mytv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/mytp"
+        android:text="定时打开FM"
+        />
+    <TextView
+        android:id="@+id/mytv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mytv1"
+        android:layout_marginTop="15dp"
+        android:text="定时关闭FM"
+        />
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn2"
+        android:text="延时发送消息" />
+
+    <Button
+        android:id="@id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn3"
+        android:text="定时发送消息" />
+
+    <Button
+        android:id="@id/btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="取消发送消息" />
+
+</RelativeLayout>
