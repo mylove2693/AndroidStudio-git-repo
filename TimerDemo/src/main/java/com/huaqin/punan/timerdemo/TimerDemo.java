@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class TimerDemo extends Activity {
 
@@ -69,6 +74,9 @@ public class TimerDemo extends Activity {
         private Button btn2;
         private Button btn3;
 
+        private TextView mytv1;
+        private TextView mytv2;
+
         public PlaceholderFragment() {
         }
 
@@ -109,6 +117,48 @@ public class TimerDemo extends Activity {
                 }
             });
 
+
+            mytv1 = (TextView) rootView.findViewById(R.id.mytv1);
+            mytv2 = (TextView) rootView.findViewById(R.id.mytv2);
+
+            mytv1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar mcurrentTime = Calendar.getInstance();
+                    int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                    int minute = mcurrentTime.get(Calendar.MINUTE);
+                    TimePickerDialog mTimePicker;
+                    mTimePicker = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                            mytv1.setText("在" + selectedHour + ":" + selectedMinute + "打开FM");
+                        }
+                    }, hour, minute, true);//Yes 24 hour time
+                    mTimePicker.setTitle("Select Time");
+                    mTimePicker.show();
+                }
+            });
+
+            mytv2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar mcurrentTime = Calendar.getInstance();
+                    int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                    int minute = mcurrentTime.get(Calendar.MINUTE);
+                    TimePickerDialog mTimePicker;
+                    mTimePicker = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                            mytv2.setText("在" + selectedHour + ":" + selectedMinute + "关闭FM");
+                        }
+                    }, hour, minute, true);//Yes 24 hour time
+                    mTimePicker.setTitle("Select Time");
+                    mTimePicker.show();
+                }
+            });
+
+
+
             return rootView;
         }
 
@@ -127,7 +177,7 @@ public class TimerDemo extends Activity {
          * 指定时间后发送信息(有如闹钟的设置)
          * 注意: Receiver记得在manifest.xml中注册
          *
-         * @param ctx
+         * @param ctx context
          */
         public static void sendUpdateBroadcast(Context ctx){
             Log.i("score", "send to start update broadcase,delay time :" + 60000);
@@ -156,12 +206,13 @@ public class TimerDemo extends Activity {
         /**
          * 取消定时执行(有如闹钟的取消)
          *
-         * @param ctx
+         * @param ctx context
          */
         public static void cancelUpdateBroadcast(Context ctx){
             AlarmManager am = getAlarmManager(ctx);
-            Intent i = new Intent(ctx, UpdateReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0, i, 0);
+            Intent intent = new Intent(ctx, UpdateReceiver.class);
+            intent.setAction(TIMING_ACTION);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0, intent, 0);
             am.cancel(pendingIntent);
         }
 

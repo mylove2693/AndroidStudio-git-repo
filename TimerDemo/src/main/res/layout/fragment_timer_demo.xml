@@ -30,7 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_below="@id/mytp"
+        android:gravity="center"
         android:text="定时打开FM"
+        android:textSize="20sp"
         />
     <TextView
         android:id="@+id/mytv2"
@@ -39,6 +41,8 @@
         android:layout_below="@id/mytv1"
         android:layout_marginTop="15dp"
         android:text="定时关闭FM"
+        android:gravity="center"
+        android:textSize="20sp"
         />
 
 
