@@ -21,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".FMAutoOpen"
+            android:label="AutoOpenFm"
+            android:theme="@android:style/Theme.Dialog">
+
+        </activity>
         <receiver android:name=".TimerDemo$UpdateReceiver"/>
     </application>
 
