@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LightAndTiltDetect</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="light_detect_tips">Open Light Detect</string>
+    <string name="tilt_detect_tips">Open Tilt Detect</string>
+
+</resources>

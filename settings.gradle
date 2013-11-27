@@ -1,1 +1,1 @@
-include ':AndroidProject', ':TestAndroid', ':DisableAppDemo', ':ShakeDemo', ':FragmentDemo', ':FragmentDemo2', ':FragmentDemo3', ':FragmentDemo4', ':FragmentTabDemo', ':TimerDemo'
+include ':AndroidProject', ':TestAndroid', ':DisableAppDemo', ':ShakeDemo', ':FragmentDemo', ':FragmentDemo2', ':FragmentDemo3', ':FragmentDemo4', ':FragmentTabDemo', ':TimerDemo', ':LightAndTiltDetect'
