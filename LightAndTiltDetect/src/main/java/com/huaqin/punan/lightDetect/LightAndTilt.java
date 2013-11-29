@@ -2,7 +2,12 @@ package com.huaqin.punan.lightDetect;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,10 +18,35 @@ import android.widget.Switch;
 
 public class LightAndTilt extends Activity {
 
+    public static LightAndTiltService mLtService;
+
+    private Intent intent;
+
+    private ServiceConnection mServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mLtService = ((LightAndTiltService.LtServiceBinder) service).getService();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light_and_tilt);
+
+        if(savedInstanceState == null){
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
+
+        intent = new Intent(this, LightAndTiltService.class);
+        this.bindService(intent,mServiceConnection, Context.BIND_AUTO_CREATE);
 
     }
 
@@ -41,6 +71,12 @@ public class LightAndTilt extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.unbindService(mServiceConnection);
+    }
+
     public static class PlaceholderFragment extends Fragment{
         private Switch sw_light;
         private Switch sw_tilt;
@@ -60,14 +96,22 @@ public class LightAndTilt extends Activity {
             sw_light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                    if(isChecked){
+                        mLtService.startLightDetect();
+                    }else{
+                        mLtService.stopLightDetect();
+                    }
                 }
             });
 
             sw_tilt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                    if(isChecked){
+                        mLtService.startTiltDetect();
+                    }else{
+                        mLtService.stopTiltDetect();
+                    }
                 }
             });
 
