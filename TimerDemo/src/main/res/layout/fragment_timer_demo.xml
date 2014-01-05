@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:enabled="false"
         android:text="打开FM自动录音"
         android:layout_marginLeft="150dp"
         android:layout_below="@id/mytv1"/>

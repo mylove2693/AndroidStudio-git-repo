@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/LightAndTiltDetect/LightAndTiltDetect.iml" filepath="$PROJECT_DIR$/LightAndTiltDetect/LightAndTiltDetect.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShakeDemo/ShakeDemo.iml" filepath="$PROJECT_DIR$/ShakeDemo/ShakeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestAndroid/TestAndroid.iml" filepath="$PROJECT_DIR$/TestAndroid/TestAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestAndroid2/TestAndroid2.iml" filepath="$PROJECT_DIR$/TestAndroid2/TestAndroid2.iml" />
       <module fileurl="file://$PROJECT_DIR$/TimerDemo/TimerDemo.iml" filepath="$PROJECT_DIR$/TimerDemo/TimerDemo.iml" />
     </modules>
   </component>

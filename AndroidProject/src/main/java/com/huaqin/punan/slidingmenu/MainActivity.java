@@ -1,5 +1,6 @@
 package com.huaqin.punan.slidingmenu;
 
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
     private Button mybtn;
+    private float[] values = new float[3];
+    private float[] rotate = new float[9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,10 @@ public class MainActivity extends Activity {
             }
         });
 
-    }
+        SensorManager.getOrientation(rotate,values);
 
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
